@@ -18,5 +18,7 @@
         </activity>
 
         <activity android:name=".page.simple.SimpleActivity"/>
+        <activity android:name=".page.single.SingleActivity1"/>
+        <activity android:name=".page.single.SingleActivity2"/>
     </application>
 </manifest>

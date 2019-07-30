@@ -2,4 +2,5 @@
     <string name="app_name">LiveDataWithViewModelDemo</string>
 
     <string name="text_simple">简单用法</string>
+    <string name="text_single">单例用法</string>
 </resources>

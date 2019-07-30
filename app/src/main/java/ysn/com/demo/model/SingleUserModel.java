@@ -1,7 +1,6 @@
 package ysn.com.demo.model;
 
 import android.arch.lifecycle.LifecycleOwner;
-import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModel;
 import android.arch.lifecycle.ViewModelProviders;
@@ -13,20 +12,20 @@ import ysn.com.demo.bean.User;
 
 /**
  * @Author yangsanning
- * @ClassName UserModel
+ * @ClassName SingleUserModel
  * @Description 一句话概括作用
  * @Date 2019/7/30
  * @History 2019/7/30 author: description:
  */
-public class UserModel extends ViewModel {
+public class SingleUserModel extends ViewModel {
 
-    private MutableLiveData<User> userLiveData = new MutableLiveData<>();
+    private SingleUserLiveData userLiveData = SingleUserLiveData.get();;
 
-    public static UserModel get(@NonNull FragmentActivity activity) {
-        return ViewModelProviders.of(activity).get(UserModel.class);
+    public static SingleUserModel get(@NonNull FragmentActivity activity) {
+        return ViewModelProviders.of(activity).get(SingleUserModel.class);
     }
 
-    public UserModel observe(@NonNull LifecycleOwner owner, @NonNull Observer<User> observer) {
+    public SingleUserModel observe(@NonNull LifecycleOwner owner, @NonNull Observer<User> observer) {
         userLiveData.observe(owner, observer);
         return this;
     }
@@ -48,7 +47,6 @@ public class UserModel extends ViewModel {
     @Override
     protected void onCleared() {
         super.onCleared();
-        Log.d("test", "UserModel onCleared()");
+        Log.d("test", "SingleUserModel onCleared()");
     }
 }
-

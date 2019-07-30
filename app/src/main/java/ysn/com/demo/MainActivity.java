@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import ysn.com.demo.page.simple.SimpleActivity;
+import ysn.com.demo.page.single.SingleActivity1;
 
 /**
  * @Author yangsanning
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         findViewById(R.id.main_activity_simple).setOnClickListener(this);
+        findViewById(R.id.main_activity_single).setOnClickListener(this);
     }
 
     @Override
@@ -29,6 +31,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()) {
             case R.id.main_activity_simple:
                 startActivity(SimpleActivity.class);
+                break;
+            case R.id.main_activity_single:
+                startActivity(SingleActivity1.class);
                 break;
             default:
                 break;
