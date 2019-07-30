@@ -10,7 +10,6 @@ import android.widget.TextView;
 import ysn.com.demo.R;
 import ysn.com.demo.bean.User;
 import ysn.com.demo.model.UserModel;
-import ysn.com.demo.page.SimpleFragment;
 
 /**
  * @Author yangsanning

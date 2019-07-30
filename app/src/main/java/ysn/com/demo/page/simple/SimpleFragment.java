@@ -1,4 +1,4 @@
-package ysn.com.demo.page;
+package ysn.com.demo.page.simple;
 
 import android.arch.lifecycle.Observer;
 import android.os.Bundle;
