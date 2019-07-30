@@ -1,15 +1,11 @@
 package ysn.com.demo;
 
-import android.arch.lifecycle.Observer;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.TextView;
 
-import ysn.com.demo.bean.User;
-import ysn.com.demo.model.UserModel;
-import ysn.com.demo.page.InstanceFragment;
+import ysn.com.demo.page.simple.SimpleActivity;
 
 /**
  * @Author yangsanning
@@ -20,30 +16,26 @@ import ysn.com.demo.page.InstanceFragment;
  */
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private UserModel userModel;
-    private TextView textView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        textView = findViewById(R.id.main_activity_content);
-        getSupportFragmentManager().beginTransaction().replace(
-                R.id.main_activity_container, InstanceFragment.newInstance()).commit();
 
-        findViewById(R.id.main_activity_button).setOnClickListener(this);
-
-        userModel = UserModel.get(this)
-                .observe(this, new Observer<User>() {
-                    @Override
-                    public void onChanged(@Nullable User user) {
-                        textView.setText(user.toString());
-                    }
-                });
+        findViewById(R.id.main_activity_simple).setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
-        userModel.setValue(new User("MainActivity", "我来自Activity"));
+        switch (view.getId()) {
+            case R.id.main_activity_simple:
+                startActivity(SimpleActivity.class);
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void startActivity(Class<?> cls) {
+        startActivity(new Intent(this, cls));
     }
 }

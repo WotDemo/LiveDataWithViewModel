@@ -16,34 +16,33 @@ import ysn.com.demo.model.UserModel;
 
 /**
  * @Author yangsanning
- * @ClassName InstanceFragment
+ * @ClassName SimpleFragment
  * @Description 一句话概括作用
  * @Date 2019/7/30
  * @History 2019/7/30 author: description:
  */
-public class InstanceFragment extends Fragment implements View.OnClickListener {
+public class SimpleFragment extends Fragment implements View.OnClickListener {
 
     private UserModel userModel;
 
     private TextView textView;
 
-    public static InstanceFragment newInstance() {
+    public static SimpleFragment newInstance() {
         Bundle args = new Bundle();
-        InstanceFragment fragment = new InstanceFragment();
+        SimpleFragment fragment = new SimpleFragment();
         fragment.setArguments(args);
         return fragment;
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_instance, container, false);
+        return inflater.inflate(R.layout.fragment_simple, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        textView = view.findViewById(R.id.instance_fragment_content);
-        view.findViewById(R.id.instance_fragment_button).setOnClickListener(this);
+        textView = view.findViewById(R.id.simple_fragment_content);
 
         userModel = UserModel.get(getActivity())
                 .observe(this, new Observer<User>() {
@@ -52,10 +51,12 @@ public class InstanceFragment extends Fragment implements View.OnClickListener {
                         textView.setText(user.toString());
                     }
                 });
+
+        view.findViewById(R.id.simple_fragment_button).setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
-        userModel.postValue(new User("InstanceFragment", "我来自Fragment"));
+        userModel.postValue(new User("SimpleFragment", "我来自Fragment"));
     }
 }

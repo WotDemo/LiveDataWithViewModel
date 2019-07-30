@@ -5,7 +5,7 @@
     android:padding="50dp">
 
     <TextView
-        android:id="@+id/instance_fragment_title"
+        android:id="@+id/simple_fragment_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -15,16 +15,16 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/instance_fragment_content"
+        android:id="@+id/simple_fragment_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/instance_fragment_button"
-        android:layout_below="@+id/instance_fragment_title"
+        android:layout_above="@+id/simple_fragment_button"
+        android:layout_below="@+id/simple_fragment_title"
         android:gravity="center"
         android:text="点击按钮更新数据" />
 
     <Button
-        android:id="@+id/instance_fragment_button"
+        android:id="@+id/simple_fragment_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
